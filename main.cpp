@@ -13,7 +13,6 @@ int main()
     clear_console();
 
 
-
     int your_guess;
     int count_of_guesses = 0;
 
