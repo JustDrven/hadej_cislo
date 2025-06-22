@@ -19,7 +19,7 @@ int main()
 
     do
     {
-        log("Máš posledních " + to_str(count_of_guesses) + ". pokusů");
+        log("Máš posledních " + to_str(5 - count_of_guesses) + ". pokusů");
         log("Zadej tvůj pokus:");
 
         count_of_guesses++;
