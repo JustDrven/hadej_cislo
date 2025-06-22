@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo Compiler is starting..
+echo [+] Compiler is starting..
 
 if [[ -f "app" ]]; then
     rm app
-    echo Old app file has been removed!
+    echo [-] Old app file has been removed!
 fi
 
-g++ main.cpp -o app
+g++ -std=c++17 main.cpp -o app
 
-echo Completed!
+echo [+] Completed!
