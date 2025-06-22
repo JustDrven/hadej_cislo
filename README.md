@@ -1,8 +1,9 @@
-# Common
+# Nádej číslo
 
-This is my first project in C++
+Ano, vím... projekt není nějak zajímavý ani užitečný,
+ale je to můj první projekt v jazyku C++
 
 <hr>
 
-Written by: JustDrven
+Naprogramoval: JustDrven
 
