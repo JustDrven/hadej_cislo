@@ -7,7 +7,7 @@ int main()
 
     int your_number;
 
-    log("Zadej číslo, které chceš hádat:");
+    print_line("Zadej číslo, které chceš hádat:");
     scanf("%d", &your_number);
     
     clear_console();
@@ -19,8 +19,8 @@ int main()
 
     do
     {
-        log("Máš posledních " + to_str(GSettings::MAX_GUESS - count_of_guesses) + ". pokusů");
-        log("Zadej tvůj pokus:");
+        print_line("Máš posledních " + to_str(GSettings::MAX_GUESS - count_of_guesses) + ". pokusů");
+        print_line("Zadej tvůj pokus:");
 
         count_of_guesses++;
 
