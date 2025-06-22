@@ -1,6 +1,5 @@
 #include "game/messages.h"
-
-static int MAX_GUESS = 5;
+#include "game/settings.h"
 
 int main()
 {
@@ -27,7 +26,7 @@ int main()
 
 
         scanf("%d", &your_guess);
-    } while (your_guess != your_number && count_of_guesses != MAX_GUESS);
+    } while (your_guess != your_number && count_of_guesses != GSettings::MAX_GUESS);
     
     
     send_stats_message(your_number, your_guess, count_of_guesses);
