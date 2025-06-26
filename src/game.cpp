@@ -19,6 +19,7 @@ void Game::setYourNumber()
 void Game::end()
 {
     Console::printLine(ColorBase::RED + "      Prohrál jsi" + ColorBase::RESET);
+    Console::printLine("  Tajné číslo bylo: " + to_string(your_number));
 }
 
 bool Game::canStop()
@@ -28,8 +29,8 @@ bool Game::canStop()
 
 void Game::win()
 {
-    Console::printLine(ColorBase::GREEN + "       Vyhrál jsi" + ColorBase::RESET);
-    Console::printLine("Číslo jsi uhádl na " + to_string(count_of_guesses + 1) + ". pokus");
+    Console::printLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
+    Console::printLine("  Číslo jsi uhádl na " + to_string(count_of_guesses) + ". pokus");
 }
 
 void Game::start()

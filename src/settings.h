@@ -9,7 +9,7 @@ class GSettings
 {
     public:
         inline static int MAX_GUESS = 5;
-        inline static string LINE = "============================";
+        inline static string LINE = "===============================";
 };
 
 #endif
