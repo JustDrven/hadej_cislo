@@ -1,16 +1,15 @@
-#include "game/messages.h"
-#include "game/settings.h"
+#include "src/messages.h"
 
 int main()
 {
-    clear_console();
+    Console::clear_console();
 
     int your_number;
 
-    print_line("Zadej číslo, které chceš hádat:");
+    Console::print_line("Zadej číslo, které chceš hádat:");
     scanf("%d", &your_number);
     
-    clear_console();
+    Console::clear_console();
 
 
     int your_guess;
@@ -18,8 +17,8 @@ int main()
 
     do
     {
-        print_line("Máš posledních " + to_str(GSettings::MAX_GUESS - count_of_guesses) + ". pokusů");
-        print_line("Zadej tvůj pokus:");
+        Console::print_line("Máš posledních " + to_str(GSettings::MAX_GUESS - count_of_guesses) + ". pokusů");
+        Console::print_line("Zadej tvůj pokus:");
 
         count_of_guesses++;
 

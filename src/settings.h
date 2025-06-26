@@ -3,10 +3,12 @@
 
 #include <string>
 
+using namespace std;
+
 class GSettings {
     public:
         inline static int MAX_GUESS = 5;
-        inline static std::string LINE = "============================";
+        inline static string LINE = "============================";
 };
 
 #endif

@@ -1,13 +1,16 @@
-#include <cstdlib>
-#include <iostream>
+#ifndef CONSOLE_H
+#define CONSOLE_H
+
 #include <string>
 
 using namespace std;
 
-void clear_console() {
-    system("clear");
-}
+class Console
+{
+    public:
+        static void clear_console();
+        static void print_line(string str = "");
+};
 
-void print_line(string str = "") {
-    cout << str << endl;
-}
+
+#endif
