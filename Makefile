@@ -1,4 +1,4 @@
-COMPILE_FILE_NAME ?= game
+COMPILE_FILE_NAME ?= game.out
 COMPILE_BASH_FILE ?= ./cmd/compile.sh
 HELP_BASH_FILE ?= ./cmd/help.sh
 B ?= bash
