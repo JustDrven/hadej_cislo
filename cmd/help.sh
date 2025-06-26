@@ -3,7 +3,7 @@
 
 
 echo "=========================================="
-echo "|             Guess The Number             |"
+echo "|             Guess The Number            |"
 echo "|                                         |"
 echo "|                                         |"
 echo "|   How to compile the project?           |"
