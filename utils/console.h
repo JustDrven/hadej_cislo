@@ -8,8 +8,8 @@ using namespace std;
 class Console
 {
     public:
-        static void clear_console();
-        static void print_line(string str = "");
+        static void clear();
+        static void printLine(string str = "");
 };
 
 

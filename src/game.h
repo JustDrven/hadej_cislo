@@ -4,14 +4,21 @@
 class Game
 {
 
-    private:
-        int count_of_guesses;
+    public:
+        int count_of_guesses = 0;
+        int your_number = -1;
+        int your_guess = -1;
 
     public:
-        Game(int& count_of_guesses);
-        void Win();
-        void End();
-};
+        void start();
+        void win();
+        void end();
 
+        bool canWin();
+        bool canStop();
+
+        void setYourNumber();
+
+};
 
 #endif

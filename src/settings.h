@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class GSettings {
+class GSettings
+{
     public:
         inline static int MAX_GUESS = 5;
         inline static string LINE = "============================";

@@ -6,10 +6,12 @@
 
 using namespace std;
 
-void Console::clear_console() {
+void Console::clear() 
+{
     cout << "\033[2J\033[H";
 }
 
-void Console::print_line(string str) {
+void Console::printLine(string str) 
+{
     cout << str << endl;
 }

@@ -13,5 +13,6 @@ echo "|                                         |"
 echo "|     2) How to run game:                 |"
 echo "|       ./game                            |"
 echo "|                                         |"
+echo "|                                         |"
 echo "=========================================="
 

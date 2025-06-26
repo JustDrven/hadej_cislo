@@ -4,25 +4,24 @@
 #include "../utils/console.h"
 #include "../utils/strings.h"
 
-void send_stats_message(int your_number, int your_guess, int count_of_guesses) {
-    Console::clear_console();
+void sendStatsMessage(Game* g) 
+{
+    Console::clear();
 
-    Game g(count_of_guesses);
+    Console::printLine();
+    Console::printLine(GSettings::LINE);
+    Console::printLine();
+    Console::printLine();
 
-    Console::print_line();
-    Console::print_line(GSettings::LINE);
-    Console::print_line();
-    Console::print_line();
-
-    if (your_number == your_guess)
-        g.Win();
+    if (g->canWin())
+        g->win();
     else
-        g.End();
+        g->end();
     
 
-    Console::print_line();
-    Console::print_line();
-    Console::print_line(GSettings::LINE);
-    Console::print_line();
+    Console::printLine();
+    Console::printLine();
+    Console::printLine(GSettings::LINE);
+    Console::printLine();
     
 }
