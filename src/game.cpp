@@ -5,15 +5,18 @@ void Game::setYourNumber()
 {
     do
     {
-        if (!isNumber(your_number))
-            your_number = -1;
-
         Console::clear();
+
+        if (!isNumber(your_number)) 
+        {
+            your_number = -1;
+            Console::printLine("Input musí být číslo!");
+        }
 
         Console::printLine("Zadej číslo, které chceš hádat:");
         scanf("%d", &your_number);
 
-    } while (isNumber(your_number) && isDefine(your_number));
+    } while (!isDefine(your_number));
 }
 
 void Game::end()
@@ -22,7 +25,7 @@ void Game::end()
     Console::printLine("  Tajné číslo bylo: " + to_string(your_number));
 }
 
-bool Game::canStop()
+bool Game::checkEnd()
 {
     return your_guess != your_number && count_of_guesses != GSettings::MAX_GUESS;
 }
@@ -41,21 +44,14 @@ void Game::start()
 
     do
     {
-        if (!isDefine(your_guess))
-            your_guess = -1;
-
         Console::printLine("Máš posledních " + to_str(GSettings::MAX_GUESS - count_of_guesses) + ". pokusů");
         Console::printLine("Zadej tvůj pokus:");
 
         scanf("%d", &your_guess);
-
-        if (isNumber(your_guess))
-            Console::printLine("Input musí být číslo!");
-        else
-            count_of_guesses++;
-
         
-    } while (canStop());
+        count_of_guesses++;
+
+    } while (checkEnd());
     
     
     sendStatsMessage(this);

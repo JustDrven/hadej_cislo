@@ -15,7 +15,7 @@ class Game
         void end();
 
         bool canWin();
-        bool canStop();
+        bool checkEnd();
 
         void setYourNumber();
 
