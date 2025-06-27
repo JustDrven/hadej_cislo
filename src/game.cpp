@@ -1,5 +1,6 @@
 #include "game.h"
 #include "messages.h"
+#include "../utils/number.h"
 
 void Game::setYourNumber()
 {
@@ -44,10 +45,16 @@ void Game::start()
 
     do
     {
-        Console::printLine("Máš posledních " + to_str(GSettings::MAX_GUESS - count_of_guesses) + ". pokusů");
+        Console::printLine("Máš posledních " + isStr(GSettings::MAX_GUESS - count_of_guesses) + ". pokusů");
         Console::printLine("Zadej tvůj pokus:");
 
         scanf("%d", &your_guess);
+
+        if (isNumber(your_guess) && isBigger(your_number, your_guess))
+            Console::printLine("Číslo je větší, než to " + isStr(your_guess));
+        else
+            Console::printLine("Číslo je menší, než to " + isStr(your_guess));
+
         
         count_of_guesses++;
 
