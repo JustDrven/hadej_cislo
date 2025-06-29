@@ -47,11 +47,23 @@ void Game::win()
 
 }
 
-void Game::start()
+void Game::start(bool _random)
 {
-    setYourNumber();
+    if (_random)
+    {
+        basePlayer.setYourNumber(getRandom(0, 10));
+    }
+    else
+    {
+        setYourNumber();
+    }
+    
+    
     
     Console::clear();
+
+    if (_random)
+        Console::printLine("");
 
     do
     {
