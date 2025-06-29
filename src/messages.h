@@ -8,7 +8,7 @@
 #include "../utils/console.h"
 #include "../utils/strings.h"
 
-void sendStatsMessage(Game* g) 
+void sendStatsMessage(Game* g)
 {
     Console::clear();
 

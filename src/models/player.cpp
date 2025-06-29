@@ -1,7 +1,11 @@
 #include "player.h"
+#include "../settings.h"
 
 void Player::addCountOfGuess()
 {
+    if (this->count_of_guesses > GSettings::MAX_GUESS)
+        return;
+
     this->count_of_guesses++;
 }
 

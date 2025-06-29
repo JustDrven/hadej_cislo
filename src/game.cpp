@@ -29,8 +29,8 @@ void Game::setYourNumber()
 
 void Game::end()
 {
-    Console::printLine(ColorBase::RED + "      Prohrál jsi" + ColorBase::RESET);
-    Console::printLine("  Tajné číslo bylo: " + toStr(basePlayer.getYourNumber()));
+    Console::printLine(ColorBase::RED + "          Prohrál jsi" + ColorBase::RESET);
+    Console::printLine("    Tajné číslo bylo: " + toStr(basePlayer.getYourNumber()));
 }
 
 bool Game::checkEnd()
