@@ -23,5 +23,4 @@ void sendStatsMessage(Game* g)
     Console::printLine();
     Console::printLine(GSettings::LINE);
     Console::printLine();
-    
 }

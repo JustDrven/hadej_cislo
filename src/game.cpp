@@ -15,6 +15,7 @@ void Game::setYourNumber()
         {
             basePlayer.setYourNumber(-1);
             Console::printLine("Input musí být číslo!");
+            break;
         }
 
         Console::printLine("Zadej číslo, které chceš hádat:");
