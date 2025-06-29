@@ -3,7 +3,7 @@
 
 using namespace std;
 
-string isStr(int value) 
+string toStr(int value) 
 {
     return to_string(value);
 }
