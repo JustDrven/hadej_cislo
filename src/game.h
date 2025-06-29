@@ -1,13 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "models/player.h"
+
 class Game
 {
 
-    public:
-        int count_of_guesses = 0;
-        int your_number = -1;
-        int your_guess = -1;
+    protected:
+        Player basePlayer;
 
     public:
         void start();
@@ -18,7 +18,7 @@ class Game
         bool checkEnd();
 
         void setYourNumber();
-
+        
 };
 
 #endif
