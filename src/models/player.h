@@ -4,7 +4,7 @@
 class Player
 {
     protected:
-        int count_of_guesses = 0;
+        unsigned int count_of_guesses = 0;
         int your_number = -1;
         int your_guess = -1;
 
