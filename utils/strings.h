@@ -1,3 +1,6 @@
+#ifndef STRINGS_UTIL_H
+#define STRINGS_UTIL_H
+
 #include <string>
 #include <cctype>
 
@@ -15,3 +18,5 @@ bool isNumber(int _ci) {
 bool isDefine(int _ci) {
     return _ci != -1;
 }
+
+#endif

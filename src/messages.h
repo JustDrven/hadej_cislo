@@ -1,5 +1,9 @@
+#ifndef MESSAGES_H
+#define MESSAGES_H
+
 #include "settings.h"
 #include "game.h"
+
 #include "../utils/colors.h"
 #include "../utils/console.h"
 #include "../utils/strings.h"
@@ -24,3 +28,5 @@ void sendStatsMessage(Game* g)
     Console::printLine(GSettings::LINE);
     Console::printLine();
 }
+
+#endif
