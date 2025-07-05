@@ -19,6 +19,11 @@ int main(int argc, char const *argv[])
         std::transform(randomArg.begin(), randomArg.end(), randomArg.begin(),
             [](unsigned char c) { return std::tolower(c); });
 
+        if (randomArg == "stats")
+        {
+            Stats::printStats();
+            return 0;
+        }
 
         if (randomArg == "random")
             genRanNum = true;

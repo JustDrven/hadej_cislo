@@ -7,7 +7,12 @@ compile_files="main.cpp utils/console.cpp utils/number.cpp utils/strings.cpp src
 
 if [[ -f "$file" ]]; then
     rm $file
-    echo [-] Old app file has been removed!
+
+    if [[ -f "stats.dat" ]]; then
+        rm stats.dat
+    fi
+    
+    echo [-] Old files has been removed!
 fi
 
 g++ -std=c++17 $compile_files -o $file

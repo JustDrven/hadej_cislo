@@ -1,63 +1,102 @@
 #include "stats.h"
 #include <fstream>
-#include <string>
 #include <map>
+#include <string>
+#include "../utils/strings.h"
+#include "../utils/console.h"
+#include "../src/settings.h"
 
 #define STATS_FILE_NAME "stats.dat"
+#define WINS_DISPLAY "Wins"
+#define LOSSES_DISPLAY "Losses"
+
+std::map<StatType, int> stats;
+
+bool exist() {
+    std::ifstream statsFile(STATS_FILE_NAME);
+
+    return statsFile.good();
+}
 
 
-using namespace std;
+std::string getNameByStatsType(StatType _statType)
+{
+    if (_statType == Wins)
+        return WINS_DISPLAY;
 
-map<StatType, int> data;
+    return LOSSES_DISPLAY;
+}
+
+StatType getStatsTypeByName(std::string _statType)
+{
+    if (_statType == WINS_DISPLAY)
+        return Wins;
+
+    return Losses;
+}
 
 void Stats::init()
 {
 
-    
-    write(Wins);
-    write(Losses);
+    if (!exist()) {
+        std::ofstream statsFile(STATS_FILE_NAME);
+
+        statsFile << WINS_DISPLAY << "=0" << std::endl;
+        statsFile << LOSSES_DISPLAY << "=0";
+
+        statsFile.close();
+    }
+
+    std::ifstream statsFile(STATS_FILE_NAME);
+    std::string line;
+
+    while (std::getline(statsFile, line)) {
+        if (line == "")
+            continue;
+
+        std::vector<std::string> data = split(line, "=");
+
+        stats.insert( { getStatsTypeByName(data.at(0)), std::stoi(data.at(1)) } );
+    }
+
+}
+
+void Stats::printStats()
+{
+    Console::clear();
+
+    Console::printLine();
+    Console::printLine(GSettings::LINE);
+    Console::printLine();
+    Console::printLine("Your stats:");
+    Console::printLine("  - Wins: " + toStr(getStat(Wins)));
+    Console::printLine("  - Losses: " + toStr(getStat(Losses)));
+    Console::printLine();
+    Console::printLine(GSettings::LINE);
+    Console::printLine();
 
 }
 
 void Stats::write(StatType _statType)
 {
+    int oldValue = getStat(_statType);
+
+    stats.erase(_statType);
+
+    stats.insert( { _statType, oldValue + 1 } );
 }
 
 int Stats::getStat(StatType _statType)
 {
-    fstream statFile(STATS_FILE_NAME);
-
-
-    string statName = getStatFormat(_statType);
-    string line;
-    while (getline(statFile, line)) {
-        if (line.rfind(statName, 0) == 0) {
-            return 1;
-        }
-    }
-
-    return 0;
+    return stats.at(_statType);
 }
 
-string Stats::getStatFormat(StatType _statType)
+void Stats::flush()
 {
-    switch (_statType)
-    {
-    case Wins:
-        return "Wins";
-    
-    case Losses:
-        return "Losses";
-    }
+    std::ofstream statsFile(STATS_FILE_NAME);
 
-    return "Unknown";
-}
-
-void Stats::flush() {
-    ofstream statsFile(STATS_FILE_NAME);
-
-    statsFile << "Heloo";
-
+    for (auto& p : stats)
+        statsFile << getNameByStatsType(p.first) + "=" + toStr(p.second) + "\n";
 
     statsFile.close();
 }
