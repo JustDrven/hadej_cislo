@@ -2,21 +2,10 @@
 #define STRINGS_UTIL_H
 
 #include <string>
-#include <cctype>
 
-using namespace std;
-
-string toStr(int value) 
-{
-    return to_string(value);
-}
-
-bool isNumber(int _ci) {
-    return isdigit(_ci) == 0;
-}
-
-bool isDefine(int _ci) {
-    return _ci != -1;
-}
+std::string toStr(int value);
+bool isNumber(int _ci);
+bool isDefine(int _ci);
+std::string repeat(int _count, char _char);
 
 #endif
