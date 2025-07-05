@@ -66,7 +66,8 @@ void Game::start(bool _r)
     
     Console::clear();
 
-    if (_r) {
+    if (_r)
+    {
         Console::printLine(GSettings::LINE);
         Console::printLine();
         Console::printLine("Čislo bylo náhodně vybrané od 0 - 10");

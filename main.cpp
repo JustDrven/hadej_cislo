@@ -2,7 +2,6 @@
 #include "stats/stats.h"
 
 #include <string>
-#include <cctype>
 
 int main(int argc, char const *argv[])
 {

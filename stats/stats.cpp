@@ -1,18 +1,21 @@
 #include "stats.h"
-#include <fstream>
-#include <map>
-#include <string>
 #include "../utils/strings.h"
 #include "../utils/console.h"
 #include "../src/settings.h"
 
+#include <map>
+#include <fstream>
+#include <string>
+
 #define STATS_FILE_NAME "stats.dat"
+
 #define WINS_DISPLAY "Wins"
 #define LOSSES_DISPLAY "Losses"
 
 std::map<StatType, int> stats;
 
-bool exist() {
+bool exist()
+{
     std::ifstream statsFile(STATS_FILE_NAME);
 
     return statsFile.good();
@@ -38,7 +41,8 @@ StatType getStatsTypeByName(std::string _statType)
 void Stats::init()
 {
 
-    if (!exist()) {
+    if (!exist())
+    {
         std::ofstream statsFile(STATS_FILE_NAME);
 
         statsFile << WINS_DISPLAY << "=0" << std::endl;
@@ -50,7 +54,8 @@ void Stats::init()
     std::ifstream statsFile(STATS_FILE_NAME);
     std::string line;
 
-    while (std::getline(statsFile, line)) {
+    while (std::getline(statsFile, line))
+    {
         if (line == "")
             continue;
 
@@ -80,7 +85,6 @@ void Stats::printStats()
 void Stats::write(StatType _statType)
 {
     int oldValue = getStat(_statType);
-
     stats.erase(_statType);
 
     stats.insert( { _statType, oldValue + 1 } );

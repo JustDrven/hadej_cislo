@@ -21,6 +21,7 @@ void sendStatsMessage(Game* g)
     else
         g->end();
 
+
     g->shutdown();
     
 

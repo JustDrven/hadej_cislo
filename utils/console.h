@@ -3,13 +3,11 @@
 
 #include <string>
 
-using namespace std;
-
 class Console
 {
     public:
         static void clear();
-        static void printLine(string str = "");
+        static void printLine(std::string str = "");
 };
 
 

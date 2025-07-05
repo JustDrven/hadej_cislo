@@ -8,7 +8,6 @@ class Player
         int your_number = -1;
         int your_guess = -1;
 
-
     public:
         int getCountOfGuesses();
         int getYourNumber();
