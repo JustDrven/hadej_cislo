@@ -6,7 +6,6 @@
 
 #include "../utils/colors.h"
 #include "../utils/console.h"
-#include "../utils/strings.h"
 
 void sendStatsMessage(Game* g)
 {
@@ -21,6 +20,8 @@ void sendStatsMessage(Game* g)
         g->win();
     else
         g->end();
+
+    g->shutdown();
     
 
     Console::printLine();

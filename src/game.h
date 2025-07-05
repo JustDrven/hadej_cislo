@@ -10,7 +10,7 @@ class Game
         Player basePlayer;
 
     public:
-        void start(bool _random);
+        void start(bool _r);
         void win();
         void end();
 
@@ -18,6 +18,7 @@ class Game
         bool checkEnd();
 
         void setYourNumber();
+        void shutdown();
         
 };
 

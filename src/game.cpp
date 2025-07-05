@@ -1,6 +1,8 @@
 #include "game.h"
 #include "messages.h"
+
 #include "../utils/number.h"
+#include "../stats/stats.h"
 
 void Game::setYourNumber()
 {
@@ -29,6 +31,9 @@ void Game::setYourNumber()
 
 void Game::end()
 {
+
+    Stats::write(Losses);
+
     Console::printLine(ColorBase::RED + "          Prohrál jsi" + ColorBase::RESET);
     Console::printLine("    Tajné číslo bylo: " + toStr(basePlayer.getYourNumber()));
 }
@@ -41,29 +46,32 @@ bool Game::checkEnd()
 
 void Game::win()
 {
+
+    Stats::write(Wins);
+
     Console::printLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
     Console::printLine("  Číslo jsi uhádl na " + to_string(basePlayer.getCountOfGuesses()) + ". pokus");
     Console::printLine("    Tajné číslo bylo: " + toStr(basePlayer.getYourNumber()));
 
 }
 
-void Game::start(bool _random)
+void Game::start(bool _r)
 {
-    if (_random)
-    {
+    if (_r)
         basePlayer.setYourNumber(getRandom(0, 10));
-    }
     else
-    {
         setYourNumber();
-    }
     
     
     
     Console::clear();
 
-    if (_random)
-        Console::printLine("");
+    if (_r) {
+        Console::printLine(GSettings::LINE);
+        Console::printLine();
+        Console::printLine("Čislo bylo náhodně vybrané od 0 - 10");
+        Console::printLine();
+    }
 
     do
     {
@@ -89,6 +97,10 @@ void Game::start(bool _random)
     
     
     sendStatsMessage(this);
+}
+
+void Game::shutdown() {
+    Stats::flush();
 }
 
 bool Game::canWin()
