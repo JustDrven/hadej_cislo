@@ -1,7 +1,11 @@
 #include "game.h"
 #include "messages.h"
+#include "settings.h"
 
 #include "../utils/number.h"
+#include "../utils/colors.h"
+#include "../utils/strings.h"
+#include "../utils/console.h"
 #include "../stats/stats.h"
 
 void Game::setYourNumber()
@@ -100,7 +104,8 @@ void Game::start(bool _r)
     sendStatsMessage(this);
 }
 
-void Game::shutdown() {
+void Game::shutdown()
+{
     Stats::flush();
 }
 
