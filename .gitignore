@@ -9,4 +9,5 @@
 *.msm
 *.msp
 
+build/
 *.dat
