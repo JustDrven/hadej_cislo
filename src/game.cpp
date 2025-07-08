@@ -50,7 +50,7 @@ void Game::win()
     Stats::write(Wins);
 
     Console::printLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
-    Console::printLine("  Číslo jsi uhádl na " + to_string(basePlayer.getCountOfGuesses()) + ". pokus");
+    Console::printLine("  Číslo jsi uhádl na " + toStr(basePlayer.getCountOfGuesses()) + ". pokus");
     Console::printLine("    Tajné číslo bylo: " + toStr(basePlayer.getYourNumber()));
 
 }

@@ -8,7 +8,7 @@ void Console::clear()
     std::cout << "\033[2J\033[H";
 }
 
-void Console::printLine(string str) 
+void Console::printLine(std::string str) 
 {
     std::cout << str << std::endl;
 }
