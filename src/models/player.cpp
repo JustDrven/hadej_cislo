@@ -29,7 +29,7 @@ int Player::getYourGuess()
     return this->your_guess;
 }
 
-int Player::getCountOfGuesses()
+unsigned int Player::getCountOfGuesses()
 {
     return this->count_of_guesses;
 }

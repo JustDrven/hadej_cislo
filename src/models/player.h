@@ -9,7 +9,7 @@ class Player
         int your_guess = -1;
 
     public:
-        int getCountOfGuesses();
+        unsigned int getCountOfGuesses();
         int getYourNumber();
         int getYourGuess();
 
