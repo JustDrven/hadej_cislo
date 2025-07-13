@@ -7,7 +7,7 @@ class Console
 {
     public:
         static void clear();
-        static void printLine(std::string str = "");
+        static void printLine(std::string = "");
 };
 
 

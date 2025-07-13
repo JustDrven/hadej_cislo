@@ -10,7 +10,7 @@ class Game
         Player basePlayer;
 
     public:
-        void start(bool _r);
+        void start(bool);
         void win();
         void end();
 

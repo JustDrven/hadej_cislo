@@ -11,8 +11,8 @@ class Stats
     public:
         static void init();
         static void printStats();
-        static void write(StatType _statType);
-        static int getStat(StatType _statType);
+        static void write(StatType);
+        static int getStat(StatType);
         static void flush();
 };
 

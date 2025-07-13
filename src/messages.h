@@ -3,6 +3,6 @@
 
 #include "game.h"
 
-void sendStatsMessage(Game* g);
+void sendStatsMessage(Game*);
 
 #endif

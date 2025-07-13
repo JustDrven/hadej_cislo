@@ -1,7 +1,7 @@
 #ifndef NUMBER_UTIL_H
 #define NUMBER_UTIL_H
 
-bool isBigger(int _v1, int _v2);
-int getRandom(int _mi, int _ma);
+bool isBigger(int, int);
+int getRandom(int, int);
 
 #endif

@@ -14,8 +14,8 @@ class Player
         int getYourGuess();
 
         void addCountOfGuess();
-        void setYourGuess(int _yg);
-        void setYourNumber(int _yn);
+        void setYourGuess(int);
+        void setYourNumber(int);
 };
 
 #endif
