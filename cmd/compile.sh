@@ -4,13 +4,13 @@ echo [+] Compiler is starting..
 
 file="$1"
 build_folder="build/"
+statsFile="stats.dat"
 compile_files="main.cpp utils/console.cpp utils/number.cpp utils/strings.cpp src/models/player.cpp src/game.cpp src/messages.cpp stats/stats.cpp"
 
 if [[ -d $build_folder ]]; then
     rm -rf $build_folder
 fi
 
-statsFile="stats.dat"
 if [[ -f $statsFile ]]; then
     rm $statsFile
 fi
