@@ -10,6 +10,11 @@ if [[ -d $build_folder ]]; then
     rm -rf $build_folder
 fi
 
+statsFile="stats.dat"
+if [[ -f $statsFile ]]; then
+    rm $statsFile
+fi
+
 mkdir $build_folder
 
 g++ -std=c++17 $compile_files -o $build_folder/$file
