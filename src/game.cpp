@@ -23,7 +23,7 @@ void Game::setYourNumber()
     {
         Console::clear();
 
-        if (!isNumber(p.getYourNumber())) 
+        if (!string_util::isNumber(p.getYourNumber())) 
         {
             p.setYourNumber(-1);
             Console::printLine("Input musí být číslo!");
@@ -36,7 +36,7 @@ void Game::setYourNumber()
 
         p.setYourNumber(your_number_input);
 
-    } while (!isDefine(your_number_input));
+    } while (!string_util::isDefine(your_number_input));
 }
 
 void Game::end()
@@ -44,7 +44,7 @@ void Game::end()
     Stats::write(Losses);
 
     Console::printLine(ColorBase::RED + "          Prohrál jsi" + ColorBase::RESET);
-    Console::printLine("    Tajné číslo bylo: " + toStr(getPlayer().getYourNumber()));
+    Console::printLine("    Tajné číslo bylo: " + string_util::toStr(getPlayer().getYourNumber()));
 }
 
 bool Game::checkEnd()
@@ -60,8 +60,8 @@ void Game::win()
     Player& p = getPlayer();
 
     Console::printLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
-    Console::printLine("  Číslo jsi uhádl na " + toStr(p.getCountOfGuesses()) + ". pokus");
-    Console::printLine("    Tajné číslo bylo: " + toStr(p.getYourNumber()));
+    Console::printLine("  Číslo jsi uhádl na " + string_util::toStr(p.getCountOfGuesses()) + ". pokus");
+    Console::printLine("    Tajné číslo bylo: " + string_util::toStr(p.getYourNumber()));
 
 }
 
@@ -89,7 +89,7 @@ void Game::start(bool _r)
 
     do
     {
-        Console::printLine("Máš posledních " + toStr(GSettings::MAX_GUESS - p.getCountOfGuesses()) + ". pokusů");
+        Console::printLine("Máš posledních " + string_util::toStr(GSettings::MAX_GUESS - p.getCountOfGuesses()) + ". pokusů");
         Console::printLine("Zadej tvůj pokus:");
 
         int your_guess_input;
@@ -97,12 +97,12 @@ void Game::start(bool _r)
 
         p.setYourGuess(your_guess_input);
 
-        if (isNumber(p.getYourGuess()) 
+        if (string_util::isNumber(p.getYourGuess()) 
                 && isBigger(p.getYourNumber(), p.getYourGuess()))
 
-            Console::printLine("Číslo je větší, než to " + toStr(p.getYourGuess()));
+            Console::printLine("Číslo je větší, než to " + string_util::toStr(p.getYourGuess()));
         else
-            Console::printLine("Číslo je menší, než to " + toStr(p.getYourGuess()));
+            Console::printLine("Číslo je menší, než to " + string_util::toStr(p.getYourGuess()));
 
         
         p.addCountOfGuess();

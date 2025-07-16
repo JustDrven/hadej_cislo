@@ -59,7 +59,7 @@ void Stats::init()
         if (line == "")
             continue;
 
-        std::vector<std::string> data = split(line, "=");
+        std::vector<std::string> data = string_util::split(line, "=");
 
         stats.insert( { getStatsTypeByName(data.at(0)), std::stoi(data.at(1)) } );
     }
@@ -74,8 +74,8 @@ void Stats::printStats()
     Console::printLine(GSettings::LINE);
     Console::printLine();
     Console::printLine("Your stats:");
-    Console::printLine("  - Wins: " + toStr(getStat(Wins)));
-    Console::printLine("  - Losses: " + toStr(getStat(Losses)));
+    Console::printLine("  - Wins: " + string_util::toStr(getStat(Wins)));
+    Console::printLine("  - Losses: " + string_util::toStr(getStat(Losses)));
     Console::printLine();
     Console::printLine(GSettings::LINE);
     Console::printLine();
@@ -100,7 +100,7 @@ void Stats::flush()
     std::ofstream statsFile(STATS_FILE_NAME);
 
     for (auto& p : stats)
-        statsFile << getNameByStatsType(p.first) + "=" + toStr(p.second) + "\n";
+        statsFile << getNameByStatsType(p.first) + "=" + string_util::toStr(p.second) + "\n";
 
     statsFile.close();
 }
