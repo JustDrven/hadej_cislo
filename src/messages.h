@@ -1,8 +1,5 @@
-#ifndef MESSAGES_H
-#define MESSAGES_H
+#pragma once
 
 #include "game.h"
 
 void sendStatsMessage(Game*);
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef COLOR_BASE_H
-#define COLOR_BASE_H
+#pragma once
 
 #include <string>
 
@@ -10,5 +9,3 @@ class ColorBase
         inline static std::string RED = "\033[31m";
         inline static std::string RESET = "\033[37m";
 };
-
-#endif

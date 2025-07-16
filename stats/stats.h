@@ -1,5 +1,4 @@
-#ifndef STATS_H
-#define STATS_H
+#pragma once
 
 enum StatType {
     Wins,
@@ -15,5 +14,3 @@ class Stats
         static int getStat(StatType);
         static void flush();
 };
-
-#endif

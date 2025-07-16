@@ -1,5 +1,4 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
 class Player
 {
@@ -17,5 +16,3 @@ class Player
         void setYourGuess(int);
         void setYourNumber(int);
 };
-
-#endif

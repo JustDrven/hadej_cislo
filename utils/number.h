@@ -1,7 +1,4 @@
-#ifndef NUMBER_UTIL_H
-#define NUMBER_UTIL_H
+#pragma once
 
 bool isBigger(int, int);
 int getRandom(int, int);
-
-#endif

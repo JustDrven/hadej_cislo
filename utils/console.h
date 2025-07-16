@@ -1,5 +1,4 @@
-#ifndef CONSOLE_H
-#define CONSOLE_H
+#pragma once
 
 #include <string>
 
@@ -9,6 +8,3 @@ class Console
         static void clear();
         static void printLine(std::string = "");
 };
-
-
-#endif

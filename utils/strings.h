@@ -1,5 +1,4 @@
-#ifndef STRINGS_UTIL_H
-#define STRINGS_UTIL_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -14,5 +13,3 @@ namespace string_util {
     std::vector<std::string> split(std::string, std::string);
 
 };
-
-#endif
