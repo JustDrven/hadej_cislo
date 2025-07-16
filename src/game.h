@@ -20,7 +20,7 @@ class Game
         void setYourNumber();
         void shutdown();
 
-        Player* getPlayer();
+        Player& getPlayer();
 
         
 };
