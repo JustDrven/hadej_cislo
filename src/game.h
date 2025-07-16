@@ -6,8 +6,8 @@
 class Game
 {
 
-    protected:
-        Player basePlayer;
+    private:
+        Player basePlayer{};
 
     public:
         void start(bool);
@@ -19,6 +19,9 @@ class Game
 
         void setYourNumber();
         void shutdown();
+
+        Player& getPlayer();
+
         
 };
 

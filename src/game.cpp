@@ -8,6 +8,11 @@
 #include "../utils/console.h"
 #include "../stats/stats.h"
 
+Player& Game::getPlayer()
+{
+    return this->basePlayer;
+}
+
 void Game::setYourNumber()
 {
 
@@ -17,9 +22,9 @@ void Game::setYourNumber()
     {
         Console::clear();
 
-        if (!isNumber(basePlayer.getYourNumber())) 
+        if (!isNumber(getPlayer().getYourNumber())) 
         {
-            basePlayer.setYourNumber(-1);
+            getPlayer().setYourNumber(-1);
             Console::printLine("Input musí být číslo!");
             break;
         }
@@ -28,7 +33,7 @@ void Game::setYourNumber()
 
         scanf("%d", &your_number_input);
 
-        basePlayer.setYourNumber(your_number_input);
+        getPlayer().setYourNumber(your_number_input);
 
     } while (!isDefine(your_number_input));
 }
@@ -39,13 +44,13 @@ void Game::end()
     Stats::write(Losses);
 
     Console::printLine(ColorBase::RED + "          Prohrál jsi" + ColorBase::RESET);
-    Console::printLine("    Tajné číslo bylo: " + toStr(basePlayer.getYourNumber()));
+    Console::printLine("    Tajné číslo bylo: " + toStr(getPlayer().getYourNumber()));
 }
 
 bool Game::checkEnd()
 {
-    return basePlayer.getYourGuess() != basePlayer.getYourNumber() 
-            && basePlayer.getCountOfGuesses() != GSettings::MAX_GUESS;
+    return getPlayer().getYourGuess() != getPlayer().getYourNumber() 
+            && getPlayer().getCountOfGuesses() != GSettings::MAX_GUESS;
 }
 
 void Game::win()
@@ -54,15 +59,18 @@ void Game::win()
     Stats::write(Wins);
 
     Console::printLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
-    Console::printLine("  Číslo jsi uhádl na " + toStr(basePlayer.getCountOfGuesses()) + ". pokus");
-    Console::printLine("    Tajné číslo bylo: " + toStr(basePlayer.getYourNumber()));
+    Console::printLine("  Číslo jsi uhádl na " + toStr(getPlayer().getCountOfGuesses()) + ". pokus");
+    Console::printLine("    Tajné číslo bylo: " + toStr(getPlayer().getYourNumber()));
 
 }
 
 void Game::start(bool _r)
 {
+
+    Player& p = getPlayer();
+
     if (_r)
-        basePlayer.setYourNumber(getRandom(0, 10));
+        p.setYourNumber(getRandom(0, 10));
     else
         setYourNumber();
     
@@ -80,23 +88,23 @@ void Game::start(bool _r)
 
     do
     {
-        Console::printLine("Máš posledních " + toStr(GSettings::MAX_GUESS - basePlayer.getCountOfGuesses()) + ". pokusů");
+        Console::printLine("Máš posledních " + toStr(GSettings::MAX_GUESS - p.getCountOfGuesses()) + ". pokusů");
         Console::printLine("Zadej tvůj pokus:");
 
         int your_guess_input;
         scanf("%d", &your_guess_input);
 
-        basePlayer.setYourGuess(your_guess_input);
+        p.setYourGuess(your_guess_input);
 
-        if (isNumber(basePlayer.getYourGuess()) 
-                && isBigger(basePlayer.getYourNumber(), basePlayer.getYourGuess()))
+        if (isNumber(p.getYourGuess()) 
+                && isBigger(p.getYourNumber(), p.getYourGuess()))
 
-            Console::printLine("Číslo je větší, než to " + toStr(basePlayer.getYourGuess()));
+            Console::printLine("Číslo je větší, než to " + toStr(p.getYourGuess()));
         else
-            Console::printLine("Číslo je menší, než to " + toStr(basePlayer.getYourGuess()));
+            Console::printLine("Číslo je menší, než to " + toStr(p.getYourGuess()));
 
         
-        basePlayer.addCountOfGuess();
+        p.addCountOfGuess();
 
     } while (checkEnd());
     
@@ -111,5 +119,7 @@ void Game::shutdown()
 
 bool Game::canWin()
 {
-    return basePlayer.getYourNumber() == basePlayer.getYourGuess();
+    Player& p = getPlayer();
+
+    return p.getYourNumber() == p.getYourGuess();
 }
