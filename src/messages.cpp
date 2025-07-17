@@ -6,7 +6,7 @@
 #include "../utils/colors.h"
 #include "../utils/console.h"
 
-void sendStatsMessage(Game* g)
+void messages::sendStats(Game* g)
 {
     Console::clear();
 

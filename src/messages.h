@@ -2,4 +2,6 @@
 
 #include "game.h"
 
-void sendStatsMessage(Game*);
+namespace messages {
+    void sendStats(Game*);
+}

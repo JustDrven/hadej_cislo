@@ -1,15 +1,13 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include "../src/base.h"
 
 namespace string_util {
 
-
-    std::string toStr(int);
+    str_t toStr(int);
     bool isNumber(int);
     bool isDefine(int);
-    std::string repeat(int, char);
-    std::vector<std::string> split(std::string, std::string);
+    str_t repeat(int, char);
+    strvec_t split(str_t, str_t);
 
 };

@@ -2,11 +2,10 @@
 
 #include <sstream>
 #include <cctype>
-#include <vector>
 
-std::string string_util::repeat(int _count, char _char)
+str_t string_util::repeat(int _count, char _char)
 {
-    std::string str;
+    str_t str;
 
     for (int i = 0; i < _count; i++)
     {
@@ -16,7 +15,7 @@ std::string string_util::repeat(int _count, char _char)
     return str;
 }
 
-std::string string_util::toStr(int value)
+str_t string_util::toStr(int value)
 {
     return std::to_string(value);
 }
@@ -31,13 +30,13 @@ bool string_util::isDefine(int _ci)
     return _ci != -1;
 }
 
-std::vector<std::string> string_util::split(std::string s, std::string delimiter) 
+strvec_t string_util::split(str_t s, str_t delimiter) 
 {
-    std::vector<std::string> tokens;
+    strvec_t tokens;
     size_t start = 0;
     size_t end = s.find(delimiter);
 
-    while (end != std::string::npos) {
+    while (end != str_t::npos) {
         tokens.push_back(s.substr(start, end - start));
         start = end + 1;
         end = s.find(delimiter, start);

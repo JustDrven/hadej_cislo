@@ -71,7 +71,7 @@ void Game::start(bool _r)
     Player& p = getPlayer();
 
     if (_r)
-        p.setYourNumber(getRandom(0, 10));
+        p.setYourNumber(number_util::getRandom(0, 10));
     else
         setYourNumber();
     
@@ -98,7 +98,7 @@ void Game::start(bool _r)
         p.setYourGuess(your_guess_input);
 
         if (string_util::isNumber(p.getYourGuess()) 
-                && isBigger(p.getYourNumber(), p.getYourGuess()))
+                && number_util::isBigger(p.getYourNumber(), p.getYourGuess()))
 
             Console::printLine("Číslo je větší, než to " + string_util::toStr(p.getYourGuess()));
         else
@@ -110,7 +110,7 @@ void Game::start(bool _r)
     } while (checkEnd());
     
     
-    sendStatsMessage(this);
+    messages::sendStats(this);
 }
 
 void Game::shutdown()

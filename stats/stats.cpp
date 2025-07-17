@@ -1,28 +1,29 @@
+#include "../src/base.h"
+
 #include "stats.h"
 #include "../utils/strings.h"
 #include "../utils/console.h"
 #include "../src/settings.h"
 
 #include <map>
-#include <fstream>
-#include <string>
 
 #define STATS_FILE_NAME "stats.dat"
 
 #define WINS_DISPLAY "Wins"
 #define LOSSES_DISPLAY "Losses"
 
+
 std::map<StatType, int> stats;
 
 bool exist()
 {
-    std::ifstream statsFile(STATS_FILE_NAME);
+    istream_t statsFile(STATS_FILE_NAME);
 
     return statsFile.good();
 }
 
 
-std::string getNameByStatsType(StatType _statType)
+str_t getNameByStatsType(StatType _statType)
 {
     if (_statType == Wins)
         return WINS_DISPLAY;
@@ -30,7 +31,7 @@ std::string getNameByStatsType(StatType _statType)
     return LOSSES_DISPLAY;
 }
 
-StatType getStatsTypeByName(std::string _statType)
+StatType getStatsTypeByName(str_t _statType)
 {
     if (_statType == WINS_DISPLAY)
         return Wins;
@@ -43,7 +44,7 @@ void Stats::init()
 
     if (!exist())
     {
-        std::ofstream statsFile(STATS_FILE_NAME);
+        ostream_t statsFile(STATS_FILE_NAME);
 
         statsFile << WINS_DISPLAY << "=0" << std::endl;
         statsFile << LOSSES_DISPLAY << "=0";
@@ -51,15 +52,15 @@ void Stats::init()
         statsFile.close();
     }
 
-    std::ifstream statsFile(STATS_FILE_NAME);
-    std::string line;
+    istream_t statsFile(STATS_FILE_NAME);
+    str_t line;
 
     while (std::getline(statsFile, line))
     {
         if (line == "")
             continue;
 
-        std::vector<std::string> data = string_util::split(line, "=");
+        strvec_t data = string_util::split(line, "=");
 
         stats.insert( { getStatsTypeByName(data.at(0)), std::stoi(data.at(1)) } );
     }
@@ -97,7 +98,7 @@ int Stats::getStat(StatType _statType)
 
 void Stats::flush()
 {
-    std::ofstream statsFile(STATS_FILE_NAME);
+    ostream_t statsFile(STATS_FILE_NAME);
 
     for (auto& p : stats)
         statsFile << getNameByStatsType(p.first) + "=" + string_util::toStr(p.second) + "\n";
