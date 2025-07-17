@@ -74,9 +74,7 @@ void Game::start(bool _r)
         p.setYourNumber(number_util::getRandom(0, 10));
     else
         setYourNumber();
-    
-    
-    
+        
     Console::clear();
 
     if (_r)

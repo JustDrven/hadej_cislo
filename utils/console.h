@@ -1,10 +1,10 @@
 #pragma once
 
-#include <string>
+#include "../src/base.h"
 
 class Console
 {
     public:
         static void clear();
-        static void printLine(std::string = "");
+        static void printLine(str_t = "");
 };

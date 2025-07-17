@@ -1,7 +1,7 @@
 #include "src/game.h"
 #include "stats/stats.h"
 
-#include <string>
+#include "src/base.h"
 
 int main(int argc, char const *argv[])
 {
@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
     bool genRanNum = false;
     if (argc == 2)
     {
-        std::string randomArg = argv[1];
+        str_t randomArg = argv[1];
 
         std::transform(randomArg.begin(), randomArg.end(), randomArg.begin(),
             [](unsigned char c) { return std::tolower(c); });
