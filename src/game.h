@@ -6,20 +6,20 @@ class Game
 {
 
     private:
-        Player basePlayer{};
+        Player base_player{};
 
     public:
-        void start(bool);
-        void win();
-        void end();
+        void Start(bool);
+        void Win();
+        void End();
 
-        bool canWin();
-        bool checkEnd();
+        bool CanWin();
+        bool CheckEnd();
 
-        void setYourNumber();
-        void shutdown();
+        void SetYourNumber();
+        void Shutdown();
 
-        Player& getPlayer();
+        Player& GetPlayer();
 
         
 };

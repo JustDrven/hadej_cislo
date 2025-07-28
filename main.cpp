@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
     }
     
 
-    game.start(genRanNum);
+    game.Start(genRanNum);
 
     return 0;
 }

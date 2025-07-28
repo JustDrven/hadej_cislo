@@ -8,16 +8,16 @@
 #include "../utils/console.h"
 #include "../stats/stats.h"
 
-Player& Game::getPlayer()
+Player& Game::GetPlayer()
 {
-    return this->basePlayer;
+    return this->base_player;
 }
 
-void Game::setYourNumber()
+void Game::SetYourNumber()
 {
 
     int your_number_input;
-    Player& p = getPlayer();
+    Player& p = GetPlayer();
 
     do
     {
@@ -39,25 +39,25 @@ void Game::setYourNumber()
     } while (!string_util::isDefine(your_number_input));
 }
 
-void Game::end()
+void Game::End()
 {
     Stats::write(Losses);
 
     Console::printLine(ColorBase::RED + "          Prohrál jsi" + ColorBase::RESET);
-    Console::printLine("    Tajné číslo bylo: " + string_util::toStr(getPlayer().GetYourNumber()));
+    Console::printLine("    Tajné číslo bylo: " + string_util::toStr(GetPlayer().GetYourNumber()));
 }
 
-bool Game::checkEnd()
+bool Game::CheckEnd()
 {
-    return getPlayer().GetYourGuess() != getPlayer().GetYourNumber() 
-            && getPlayer().GetCountOfGuesses() != GSettings::MAX_GUESS;
+    return GetPlayer().GetYourGuess() != GetPlayer().GetYourNumber() 
+            && GetPlayer().GetCountOfGuesses() != GSettings::MAX_GUESS;
 }
 
-void Game::win()
+void Game::Win()
 {
 
     Stats::write(Wins);
-    Player& p = getPlayer();
+    Player& p = GetPlayer();
 
     Console::printLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
     Console::printLine("  Číslo jsi uhádl na " + string_util::toStr(p.GetCountOfGuesses()) + ". pokus");
@@ -65,15 +65,15 @@ void Game::win()
 
 }
 
-void Game::start(bool _r)
+void Game::Start(bool _r)
 {
 
-    Player& p = getPlayer();
+    Player& p = GetPlayer();
 
     if (_r)
         p.SetYourNumber(number_util::getRandom(0, 10));
     else
-        setYourNumber();
+        SetYourNumber();
         
     Console::clear();
 
@@ -105,20 +105,20 @@ void Game::start(bool _r)
         
         p.AddCountOfGuess();
 
-    } while (checkEnd());
+    } while (CheckEnd());
     
     
     messages::sendStats(this);
 }
 
-void Game::shutdown()
+void Game::Shutdown()
 {
     Stats::flush();
 }
 
-bool Game::canWin()
+bool Game::CanWin()
 {
-    Player& p = getPlayer();
+    Player& p = GetPlayer();
 
     return p.GetYourNumber() == p.GetYourGuess();
 }

@@ -15,13 +15,13 @@ void messages::sendStats(Game* g)
     Console::printLine();
     Console::printLine();
 
-    if (g->canWin())
-        g->win();
+    if (g->CanWin())
+        g->Win();
     else
-        g->end();
+        g->End();
 
 
-    g->shutdown();
+    g->Shutdown();
     
 
     Console::printLine();
