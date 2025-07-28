@@ -8,11 +8,11 @@ class Player
         int your_guess = -1;
 
     public:
-        unsigned int getCountOfGuesses();
-        int getYourNumber();
-        int getYourGuess();
+        unsigned int GetCountOfGuesses();
+        int GetYourNumber();
+        int GetYourGuess();
 
-        void addCountOfGuess();
-        void setYourGuess(int);
-        void setYourNumber(int);
+        void AddCountOfGuess();
+        void SetYourGuess(int);
+        void SetYourNumber(int);
 };
