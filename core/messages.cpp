@@ -1,10 +1,17 @@
-#include "messages.h"
+/*
+  Copyright (C) - All right reserved
 
-#include "settings.h"
-#include "game.h"
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
 
-#include "../utils/colors.h"
-#include "../utils/console.h"
+
+#include "../include/messages.h"
+
+#include "../include/settings.h"
+#include "../include/game.h"
+
+#include "../include/utils/colors.h"
+#include "../include/utils/console.h"
 
 void messages::SendStats(Game* g)
 {

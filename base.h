@@ -1,7 +1,15 @@
+/*
+  Copyright (C) - All right reserved
+
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
+
 #pragma once
 
 #include <fstream>
 #include <vector>
+#include <map>
+#include <iostream>
 
 typedef std::string STR_T;
 typedef std::ifstream ISTREAM_T;

@@ -1,11 +1,16 @@
-#include "../src/base.h"
+/*
+  Copyright (C) - All right reserved
 
-#include "stats.h"
-#include "../utils/strings.h"
-#include "../utils/console.h"
-#include "../src/settings.h"
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
 
-#include <map>
+#include "../../base.h"
+
+#include "../../include/stats/stats.h"
+#include "../../include/utils/strings.h"
+#include "../../include/utils/console.h"
+#include "../../include/settings.h"
+
 
 #define STATS_FILE_NAME "stats.dat"
 

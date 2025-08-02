@@ -1,5 +1,12 @@
-#include "player.h"
-#include "../settings.h"
+/*
+  Copyright (C) - All right reserved
+
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
+
+
+#include "../../include/models/player.h"
+#include "../../include/settings.h"
 
 void Player::AddCountOfGuess()
 {

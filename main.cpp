@@ -1,7 +1,13 @@
-#include "src/game.h"
-#include "stats/stats.h"
+/*
+  Copyright (C) - All right reserved
 
-#include "src/base.h"
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
+
+#include "include/game.h"
+#include "include/stats/stats.h"
+
+#include "base.h"
 
 int main(int argc, char const *argv[])
 {

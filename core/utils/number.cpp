@@ -1,4 +1,11 @@
-#include "number.h"
+/*
+  Copyright (C) - All right reserved
+
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
+
+
+#include "../../include/utils/number.h"
 #include <random>
 
 bool number_util::IsBigger(int _v1, int _v2)

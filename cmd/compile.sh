@@ -5,7 +5,7 @@ echo [+] Compiler is starting..
 file="$1"
 build_folder="build/"
 statsFile="stats.dat"
-compile_files="main.cpp utils/console.cpp utils/number.cpp utils/strings.cpp src/models/player.cpp src/game.cpp src/messages.cpp stats/stats.cpp"
+compile_files="main.cpp core/utils/console.cpp core/utils/number.cpp core/utils/strings.cpp core/models/player.cpp core/game.cpp core/messages.cpp core/stats/stats.cpp"
 
 if [[ -d $build_folder ]]; then
     rm -rf $build_folder

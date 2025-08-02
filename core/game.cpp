@@ -1,12 +1,18 @@
-#include "game.h"
-#include "messages.h"
-#include "settings.h"
+/*
+  Copyright (C) - All right reserved
 
-#include "../utils/number.h"
-#include "../utils/colors.h"
-#include "../utils/strings.h"
-#include "../utils/console.h"
-#include "../stats/stats.h"
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
+
+#include "../include/game.h"
+#include "../include/messages.h"
+#include "../include/settings.h"
+
+#include "../include/utils/number.h"
+#include "../include/utils/colors.h"
+#include "../include/utils/strings.h"
+#include "../include/utils/console.h"
+#include "../include/stats/stats.h"
 
 Player& Game::GetPlayer()
 {
