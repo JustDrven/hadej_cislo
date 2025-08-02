@@ -5,7 +5,7 @@
 class ColorBase
 {
     public:
-        inline static str_t GREEN = "\033[32m";
-        inline static str_t RED = "\033[31m";
-        inline static str_t RESET = "\033[37m";
+        inline static STR_T GREEN = "\033[32m";
+        inline static STR_T RED = "\033[31m";
+        inline static STR_T RESET = "\033[37m";
 };

@@ -4,10 +4,10 @@
 
 namespace string_util {
 
-    str_t toStr(int);
-    bool isNumber(int);
-    bool isDefine(int);
-    str_t repeat(int, char);
-    strvec_t split(str_t, str_t);
+    STR_T ToStr(int);
+    bool IsNumber(int);
+    bool IsDefine(int);
+    STR_T Repeat(UINT, char);
+    STRVEC_T Split(STR_T, STR_T);
 
 };

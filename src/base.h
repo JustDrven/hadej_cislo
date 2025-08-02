@@ -3,9 +3,14 @@
 #include <fstream>
 #include <vector>
 
-typedef std::string str_t;
-typedef std::ifstream istream_t;
-typedef std::ofstream ostream_t;
-typedef std::vector<str_t> strvec_t;
+typedef std::string STR_T;
+typedef std::ifstream ISTREAM_T;
+typedef std::ofstream OSTREAM_T;
+typedef std::vector<STR_T> STRVEC_T;
+typedef unsigned int UINT;
+
+#define ISTATIC inline static
+#define STATIC static
+#define LINES(f, l) std::getline(f, l)
 
 

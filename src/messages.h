@@ -3,5 +3,5 @@
 #include "game.h"
 
 namespace messages {
-    void sendStats(Game*);
+    void SendStats(Game*);
 }

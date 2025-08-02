@@ -6,21 +6,21 @@
 int main(int argc, char const *argv[])
 {
 
-    Stats::init();
+    Stats::Init();
 
     Game game;
 
     bool genRanNum = false;
     if (argc == 2)
     {
-        str_t randomArg = argv[1];
+        STR_T randomArg = argv[1];
 
         std::transform(randomArg.begin(), randomArg.end(), randomArg.begin(),
             [](unsigned char c) { return std::tolower(c); });
 
         if (randomArg == "stats")
         {
-            Stats::printStats();
+            Stats::PrintStats();
             return 0;
         }
 

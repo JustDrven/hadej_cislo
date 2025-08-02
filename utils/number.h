@@ -1,6 +1,6 @@
 #pragma once
 
 namespace number_util {
-    bool isBigger(int, int);
-    int getRandom(int, int);
+    bool IsBigger(int, int);
+    int GetRandom(int, int);
 };

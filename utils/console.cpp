@@ -2,12 +2,12 @@
 
 #include <iostream>
 
-void Console::clear() 
+void Console::Clear() 
 {
     std::cout << "\033[2J\033[H";
 }
 
-void Console::printLine(str_t str) 
+void Console::PrintLine(STR_T str) 
 {
     std::cout << str << std::endl;
 }

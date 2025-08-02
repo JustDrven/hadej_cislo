@@ -13,17 +13,17 @@
 #define LOSSES_DISPLAY "Losses"
 
 
-std::map<StatType, int> stats;
+std::map<STAT_TYPE, int> stats;
 
 bool exist()
 {
-    istream_t statsFile(STATS_FILE_NAME);
+    ISTREAM_T statsFile(STATS_FILE_NAME);
 
     return statsFile.good();
 }
 
 
-str_t getNameByStatsType(StatType _statType)
+STR_T getNameByStatsType(STAT_TYPE _statType)
 {
     if (_statType == Wins)
         return WINS_DISPLAY;
@@ -31,7 +31,7 @@ str_t getNameByStatsType(StatType _statType)
     return LOSSES_DISPLAY;
 }
 
-StatType getStatsTypeByName(str_t _statType)
+STAT_TYPE getStatsTypeByName(STR_T _statType)
 {
     if (_statType == WINS_DISPLAY)
         return Wins;
@@ -39,12 +39,12 @@ StatType getStatsTypeByName(str_t _statType)
     return Losses;
 }
 
-void Stats::init()
+void Stats::Init()
 {
 
     if (!exist())
     {
-        ostream_t statsFile(STATS_FILE_NAME);
+        OSTREAM_T statsFile(STATS_FILE_NAME);
 
         statsFile << WINS_DISPLAY << "=0" << std::endl;
         statsFile << LOSSES_DISPLAY << "=0";
@@ -52,56 +52,56 @@ void Stats::init()
         statsFile.close();
     }
 
-    istream_t statsFile(STATS_FILE_NAME);
-    str_t line;
+    ISTREAM_T statsFile(STATS_FILE_NAME);
+    STR_T line;
 
-    while (std::getline(statsFile, line))
+    while (LINES(statsFile, line))
     {
         if (line == "")
             continue;
 
-        strvec_t data = string_util::split(line, "=");
+        STRVEC_T data = string_util::Split(line, "=");
 
         stats.insert( { getStatsTypeByName(data.at(0)), std::stoi(data.at(1)) } );
     }
 
 }
 
-void Stats::printStats()
+void Stats::PrintStats()
 {
-    Console::clear();
+    Console::Clear();
 
-    Console::printLine();
-    Console::printLine(GSettings::LINE);
-    Console::printLine();
-    Console::printLine("Your stats:");
-    Console::printLine("  - Wins: " + string_util::toStr(getStat(Wins)));
-    Console::printLine("  - Losses: " + string_util::toStr(getStat(Losses)));
-    Console::printLine();
-    Console::printLine(GSettings::LINE);
-    Console::printLine();
+    Console::PrintLine();
+    Console::PrintLine(GSettings::LINE);
+    Console::PrintLine();
+    Console::PrintLine("Your stats:");
+    Console::PrintLine("  - Wins: " + string_util::ToStr(GetStat(Wins)));
+    Console::PrintLine("  - Losses: " + string_util::ToStr(GetStat(Losses)));
+    Console::PrintLine();
+    Console::PrintLine(GSettings::LINE);
+    Console::PrintLine();
 
 }
 
-void Stats::write(StatType _statType)
+void Stats::Write(STAT_TYPE _statType)
 {
-    int oldValue = getStat(_statType);
+    UINT oldValue = GetStat(_statType);
     stats.erase(_statType);
 
     stats.insert( { _statType, oldValue + 1 } );
 }
 
-int Stats::getStat(StatType _statType)
+UINT Stats::GetStat(STAT_TYPE _statType)
 {
     return stats.at(_statType);
 }
 
-void Stats::flush()
+void Stats::Flush()
 {
-    ostream_t statsFile(STATS_FILE_NAME);
+    OSTREAM_T statsFile(STATS_FILE_NAME);
 
     for (auto& p : stats)
-        statsFile << getNameByStatsType(p.first) + "=" + string_util::toStr(p.second) + "\n";
+        statsFile << getNameByStatsType(p.first) + "=" + string_util::ToStr(p.second) + "\n";
 
     statsFile.close();
 }

@@ -21,30 +21,30 @@ void Game::SetYourNumber()
 
     do
     {
-        Console::clear();
+        Console::Clear();
 
-        if (!string_util::isNumber(p.GetYourNumber())) 
+        if (!string_util::IsNumber(p.GetYourNumber())) 
         {
             p.SetYourNumber(-1);
-            Console::printLine("Input musí být číslo!");
+            Console::PrintLine("Input musí být číslo!");
             break;
         }
 
-        Console::printLine("Zadej číslo, které chceš hádat:");
+        Console::PrintLine("Zadej číslo, které chceš hádat:");
 
         scanf("%d", &your_number_input);
 
         p.SetYourNumber(your_number_input);
 
-    } while (!string_util::isDefine(your_number_input));
+    } while (!string_util::IsDefine(your_number_input));
 }
 
 void Game::End()
 {
-    Stats::write(Losses);
+    Stats::Write(Losses);
 
-    Console::printLine(ColorBase::RED + "          Prohrál jsi" + ColorBase::RESET);
-    Console::printLine("    Tajné číslo bylo: " + string_util::toStr(GetPlayer().GetYourNumber()));
+    Console::PrintLine(ColorBase::RED + "          Prohrál jsi" + ColorBase::RESET);
+    Console::PrintLine("    Tajné číslo bylo: " + string_util::ToStr(GetPlayer().GetYourNumber()));
 }
 
 bool Game::CheckEnd()
@@ -56,12 +56,12 @@ bool Game::CheckEnd()
 void Game::Win()
 {
 
-    Stats::write(Wins);
+    Stats::Write(Wins);
     Player& p = GetPlayer();
 
-    Console::printLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
-    Console::printLine("  Číslo jsi uhádl na " + string_util::toStr(p.GetCountOfGuesses()) + ". pokus");
-    Console::printLine("    Tajné číslo bylo: " + string_util::toStr(p.GetYourNumber()));
+    Console::PrintLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
+    Console::PrintLine("  Číslo jsi uhádl na " + string_util::ToStr(p.GetCountOfGuesses()) + ". pokus");
+    Console::PrintLine("    Tajné číslo bylo: " + string_util::ToStr(p.GetYourNumber()));
 
 }
 
@@ -71,36 +71,36 @@ void Game::Start(bool _r)
     Player& p = GetPlayer();
 
     if (_r)
-        p.SetYourNumber(number_util::getRandom(0, 10));
+        p.SetYourNumber(number_util::GetRandom(0, 10));
     else
         SetYourNumber();
         
-    Console::clear();
+    Console::Clear();
 
     if (_r)
     {
-        Console::printLine(GSettings::LINE);
-        Console::printLine();
-        Console::printLine("Čislo bylo náhodně vybrané od 0 - 10");
-        Console::printLine();
+        Console::PrintLine(GSettings::LINE);
+        Console::PrintLine();
+        Console::PrintLine("Čislo bylo náhodně vybrané od 0 - 10");
+        Console::PrintLine();
     }
 
     do
     {
-        Console::printLine("Máš posledních " + string_util::toStr(GSettings::MAX_GUESS - p.GetCountOfGuesses()) + ". pokusů");
-        Console::printLine("Zadej tvůj pokus:");
+        Console::PrintLine("Máš posledních " + string_util::ToStr(GSettings::MAX_GUESS - p.GetCountOfGuesses()) + ". pokusů");
+        Console::PrintLine("Zadej tvůj pokus:");
 
         int your_guess_input;
         scanf("%d", &your_guess_input);
 
         p.SetYourGuess(your_guess_input);
 
-        if (string_util::isNumber(p.GetYourGuess()) 
-                && number_util::isBigger(p.GetYourNumber(), p.GetYourGuess()))
+        if (string_util::IsNumber(p.GetYourGuess()) 
+                && number_util::IsBigger(p.GetYourNumber(), p.GetYourGuess()))
 
-            Console::printLine("Číslo je větší, než to " + string_util::toStr(p.GetYourGuess()));
+            Console::PrintLine("Číslo je větší, než to " + string_util::ToStr(p.GetYourGuess()));
         else
-            Console::printLine("Číslo je menší, než to " + string_util::toStr(p.GetYourGuess()));
+            Console::PrintLine("Číslo je menší, než to " + string_util::ToStr(p.GetYourGuess()));
 
         
         p.AddCountOfGuess();
@@ -108,12 +108,12 @@ void Game::Start(bool _r)
     } while (CheckEnd());
     
     
-    messages::sendStats(this);
+    messages::SendStats(this);
 }
 
 void Game::Shutdown()
 {
-    Stats::flush();
+    Stats::Flush();
 }
 
 bool Game::CanWin()

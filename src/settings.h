@@ -6,6 +6,6 @@
 class GSettings
 {
     public:
-        inline static int MAX_GUESS = 5;
-        inline static str_t LINE = string_util::repeat(30, '=');
+        ISTATIC int MAX_GUESS = 5;
+        ISTATIC STR_T LINE = string_util::Repeat(30, '=');
 };

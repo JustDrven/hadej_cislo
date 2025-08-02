@@ -6,14 +6,14 @@
 #include "../utils/colors.h"
 #include "../utils/console.h"
 
-void messages::sendStats(Game* g)
+void messages::SendStats(Game* g)
 {
-    Console::clear();
+    Console::Clear();
 
-    Console::printLine();
-    Console::printLine(GSettings::LINE);
-    Console::printLine();
-    Console::printLine();
+    Console::PrintLine();
+    Console::PrintLine(GSettings::LINE);
+    Console::PrintLine();
+    Console::PrintLine();
 
     if (g->CanWin())
         g->Win();
@@ -24,8 +24,8 @@ void messages::sendStats(Game* g)
     g->Shutdown();
     
 
-    Console::printLine();
-    Console::printLine();
-    Console::printLine(GSettings::LINE);
-    Console::printLine();
+    Console::PrintLine();
+    Console::PrintLine();
+    Console::PrintLine(GSettings::LINE);
+    Console::PrintLine();
 }

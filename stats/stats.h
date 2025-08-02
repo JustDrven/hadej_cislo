@@ -1,16 +1,18 @@
 #pragma once
 
-enum StatType {
+#include "../src/base.h"
+
+typedef enum StatType {
     Wins,
     Losses
-};
+} STAT_TYPE;
 
 class Stats
 {
     public:
-        static void init();
-        static void printStats();
-        static void write(StatType);
-        static int getStat(StatType);
-        static void flush();
+        STATIC void Init();
+        STATIC void PrintStats();
+        STATIC void Write(STAT_TYPE);
+        STATIC UINT GetStat(STAT_TYPE);
+        STATIC void Flush();
 };

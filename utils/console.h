@@ -5,6 +5,6 @@
 class Console
 {
     public:
-        static void clear();
-        static void printLine(str_t = "");
+        static void Clear();
+        static void PrintLine(STR_T = "");
 };
