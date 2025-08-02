@@ -7,7 +7,7 @@
 #pragma once
 
 #include "utils/strings.h"
-#include "../base.h"
+#include "../base/precompile.h"
 
 class GSettings
 {

@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "../../base.h"
+#include "../../base/precompile.h"
 
 typedef enum StatType {
     Wins,

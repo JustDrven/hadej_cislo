@@ -6,6 +6,8 @@
 
 
 #include "../../include/utils/number.h"
+#include "../../base/precompile.h"
+
 #include <random>
 
 bool number_util::IsBigger(int _v1, int _v2)
@@ -15,8 +17,8 @@ bool number_util::IsBigger(int _v1, int _v2)
 
 int number_util::GetRandom(int _mi, int _ma)
 {
-    static std::random_device rd;
-    static std::mt19937 gen(rd());
+    STATIC std::random_device rd;
+    STATIC std::mt19937 gen(rd());
 
     std::uniform_int_distribution<int> dist(_mi, _ma);
 

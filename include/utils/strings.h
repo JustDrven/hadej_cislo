@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "../../base.h"
+#include "../../base/precompile.h"
 
 namespace string_util {
 

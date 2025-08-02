@@ -4,13 +4,22 @@
   Author:     JustDrven (petr.nemec11111@gmail.com)
 */
 
-#include "include/game.h"
-#include "include/stats/stats.h"
+#include "../include/game.h"
+#include "../include/stats/stats.h"
 
-#include "base.h"
+#include "../dev/debug.h"
+#include "../dev/os.h"
+
+#include "precompile.h"
 
 int main(int argc, char const *argv[])
 {
+
+    if (__START != 1) {
+        LOG("Neznámý operační systém.");
+        
+        return 1;
+    }
 
     Stats::Init();
 

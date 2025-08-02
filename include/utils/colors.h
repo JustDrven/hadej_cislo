@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "../../base.h"
+#include "../../base/precompile.h"
 
 class ColorBase
 {
     public:
-        inline static STR_T GREEN = "\033[32m";
-        inline static STR_T RED = "\033[31m";
-        inline static STR_T RESET = "\033[37m";
+        ISTATIC STR_T GREEN = "\033[32m";
+        ISTATIC STR_T RED = "\033[31m";
+        ISTATIC STR_T RESET = "\033[37m";
 };
