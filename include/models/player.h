@@ -16,7 +16,7 @@ class Player
         int your_guess = -1;
 
     public:
-        unsigned int GetCountOfGuesses();
+        UINT GetCountOfGuesses();
         int GetYourNumber();
         int GetYourGuess();
 

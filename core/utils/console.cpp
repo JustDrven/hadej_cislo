@@ -15,5 +15,5 @@ void Console::Clear()
 
 void Console::PrintLine(STR_T str) 
 {
-    std::cout << str << std::endl;
+    std::cout << str << NL;
 }

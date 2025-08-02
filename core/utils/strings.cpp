@@ -7,8 +7,7 @@
 
 #include "../../include/utils/strings.h"
 
-#include <sstream>
-#include <cctype>
+
 
 STR_T string_util::Repeat(UINT _count, char _char)
 {
@@ -35,6 +34,11 @@ bool string_util::IsNumber(int _ci)
 bool string_util::IsDefine(int _ci)
 {
     return _ci != -1;
+}
+
+bool string_util::IsEmpty(STR_T t)
+{
+    return t != "";
 }
 
 STRVEC_T string_util::Split(STR_T s, STR_T delimiter) 

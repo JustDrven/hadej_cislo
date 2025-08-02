@@ -11,8 +11,8 @@
 #if DEBUG == 1
     #include <iostream>
 
-    #define LOG(str) std::cout << "[LOG] " str << std::endl;
-    #define ERROR(str) std::cout << "[ERROR] " str << std::endl;
+    #define LOG(str) std::cout << "[LOG] " str << NL;
+    #define ERROR(str) std::cout << "[ERROR] " str << NL;
 #elif
     #define LOG(str) 
     #define ERROR(str) 

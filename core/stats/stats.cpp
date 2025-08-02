@@ -51,7 +51,7 @@ void Stats::Init()
     {
         OSTREAM_T statsFile(STATS_FILE_NAME);
 
-        statsFile << WINS_DISPLAY << "=0" << std::endl;
+        statsFile << WINS_DISPLAY << "=0" << NL;
         statsFile << LOSSES_DISPLAY << "=0";
 
         statsFile.close();
@@ -62,7 +62,7 @@ void Stats::Init()
 
     while (LINES(statsFile, line))
     {
-        if (line == "")
+        if (string_util::IsEmpty(line))
             continue;
 
         STRVEC_T data = string_util::Split(line, "=");

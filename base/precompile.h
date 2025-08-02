@@ -10,6 +10,8 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <sstream>
+#include <cctype>
 
 typedef std::string STR_T;
 typedef std::ifstream ISTREAM_T;
@@ -21,4 +23,5 @@ typedef unsigned int UINT;
 #define STATIC static
 #define LINES(f, l) std::getline(f, l)
 
+#define NL std::endl;
 
