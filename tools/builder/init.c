@@ -1,0 +1,20 @@
+#include "builder_util.h"
+
+int main(int argc, char const *argv[]) {
+    if (!__CAN_START) {
+        ERROR("Neznámý operační system");
+        return 1;
+    }
+
+    if (argc != 3) {
+        LOG("Použíj: ./builder [cFile] [file]");
+        return 1;
+    }
+
+    COMPILE_DATA data = CompileDataFactory(argv[1], argv[2]);
+
+    Compile(&data);
+
+    return data.statusCode;
+}
+

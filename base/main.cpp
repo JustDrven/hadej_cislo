@@ -8,14 +8,14 @@
 #include "../include/stats/stats.h"
 
 #include "../dev/debug.h"
-#include "../dev/os.h"
+#include "../tools/compiler/starter.h"
 
 #include "precompile.h"
 
 int main(int argc, char const *argv[])
 {
 
-    if (__START != 1) {
+    if (!__CAN_START) {
         LOG("Neznámý operační systém.");
         
         return 1;
