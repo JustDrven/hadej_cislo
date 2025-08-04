@@ -19,8 +19,6 @@ void Compile(COMPILE_DATA* data) {
     char command[9000];
     snprintf(command, sizeof(command), "clang %s -o %s", data->cFileName, data->fileName);
 
-    printf("%s \n", command);
-
     int statusCode = system(command);
     data->statusCode = statusCode;
 }
