@@ -1,9 +1,15 @@
+/*
+  Copyright (C) - All right reserved
+
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
+
 #pragma once
 
 #include "../compiler/precompile.h"
 #include "../compiler/file_sys.h"
 
-typedef struct CompileData {
+typedef struct {
     STR cFileName;
     STR fileName;
     int statusCode;

@@ -1,4 +1,6 @@
 *.out
+*.exe
+*.o
 .vscode
 .idea
 *.d
@@ -11,3 +13,4 @@
 
 build/
 *.dat
+.DS_Store

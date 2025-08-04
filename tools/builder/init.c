@@ -1,3 +1,9 @@
+/*
+  Copyright (C) - All right reserved
+
+  Author:     JustDrven (petr.nemec11111@gmail.com)
+*/
+
 #include "builder_util.h"
 
 int main(int argc, char const *argv[]) {
