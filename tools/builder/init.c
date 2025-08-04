@@ -7,14 +7,16 @@ int main(int argc, char const *argv[]) {
     }
 
     if (argc != 3) {
-        LOG("Použíj: ./builder [cFile] [file]");
+        LOG("Použíj: ./cBuilder [cFile] [file]");
         return 1;
     }
 
-    COMPILE_DATA data = CompileDataFactory(argv[1], argv[2]);
+    COMPILE_DATA* data = CompileDataFactory(argv[1], argv[2]);
 
-    Compile(&data);
+    Compile(data);
 
-    return data.statusCode;
+    free(data);
+
+    return data->statusCode;
 }
 
