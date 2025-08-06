@@ -14,7 +14,7 @@
 #include "../include/utils/console.h"
 #include "../include/stats/stats.h"
 
-Player& Game::GetPlayer()
+Player &Game::GetPlayer()
 {
     return this->base_player;
 }
@@ -23,13 +23,13 @@ void Game::SetYourNumber()
 {
 
     int your_number_input;
-    Player& p = GetPlayer();
+    Player &p = GetPlayer();
 
     do
     {
         Console::Clear();
 
-        if (!string_util::IsNumber(p.GetYourNumber())) 
+        if (!string_util::IsNumber(p.GetYourNumber()))
         {
             p.SetYourNumber(-1);
             Console::PrintLine("Input musí být číslo!");
@@ -55,32 +55,30 @@ void Game::End()
 
 bool Game::CheckEnd()
 {
-    return GetPlayer().GetYourGuess() != GetPlayer().GetYourNumber() 
-            && GetPlayer().GetCountOfGuesses() != GSettings::MAX_GUESS;
+    return GetPlayer().GetYourGuess() != GetPlayer().GetYourNumber() && GetPlayer().GetCountOfGuesses() != GSettings::MAX_GUESS;
 }
 
 void Game::Win()
 {
 
     Stats::Write(Wins);
-    Player& p = GetPlayer();
+    Player &p = GetPlayer();
 
     Console::PrintLine(ColorBase::GREEN + "        Vyhrál jsi" + ColorBase::RESET);
     Console::PrintLine("  Číslo jsi uhádl na " + string_util::ToStr(p.GetCountOfGuesses()) + ". pokus");
     Console::PrintLine("    Tajné číslo bylo: " + string_util::ToStr(p.GetYourNumber()));
-
 }
 
 void Game::Start(bool _r)
 {
 
-    Player& p = GetPlayer();
+    Player &p = GetPlayer();
 
     if (_r)
         p.SetYourNumber(number_util::GetRandom(0, 10));
     else
         SetYourNumber();
-        
+
     Console::Clear();
 
     if (_r)
@@ -101,19 +99,16 @@ void Game::Start(bool _r)
 
         p.SetYourGuess(your_guess_input);
 
-        if (string_util::IsNumber(p.GetYourGuess()) 
-                && number_util::IsBigger(p.GetYourNumber(), p.GetYourGuess()))
+        if (string_util::IsNumber(p.GetYourGuess()) && number_util::IsBigger(p.GetYourNumber(), p.GetYourGuess()))
 
             Console::PrintLine("Číslo je větší, než to " + string_util::ToStr(p.GetYourGuess()));
         else
             Console::PrintLine("Číslo je menší, než to " + string_util::ToStr(p.GetYourGuess()));
 
-        
         p.AddCountOfGuess();
 
     } while (CheckEnd());
-    
-    
+
     messages::SendStats(this);
 }
 
@@ -124,7 +119,7 @@ void Game::Shutdown()
 
 bool Game::CanWin()
 {
-    Player& p = GetPlayer();
+    Player &p = GetPlayer();
 
     return p.GetYourNumber() == p.GetYourGuess();
 }

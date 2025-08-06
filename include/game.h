@@ -11,21 +11,19 @@
 class Game
 {
 
-    private:
-        Player base_player{};
+private:
+    Player base_player{};
 
-    public:
-        void Start(bool);
-        void Win();
-        void End();
+public:
+    void Start(bool);
+    void Win();
+    void End();
 
-        bool CanWin();
-        bool CheckEnd();
+    bool CanWin();
+    bool CheckEnd();
 
-        void SetYourNumber();
-        void Shutdown();
+    void SetYourNumber();
+    void Shutdown();
 
-        Player& GetPlayer();
-
-        
+    Player &GetPlayer();
 };

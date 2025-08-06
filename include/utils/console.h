@@ -10,7 +10,7 @@
 
 class Console
 {
-    public:
-        STATIC void Clear();
-        STATIC void PrintLine(STR_T = "");
+public:
+    STATIC void Clear();
+    STATIC void PrintLine(STR_T = "");
 };

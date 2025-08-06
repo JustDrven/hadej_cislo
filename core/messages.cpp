@@ -4,7 +4,6 @@
   Author:     JustDrven (petr.nemec11111@gmail.com)
 */
 
-
 #include "../include/messages.h"
 
 #include "../include/settings.h"
@@ -13,7 +12,7 @@
 #include "../include/utils/colors.h"
 #include "../include/utils/console.h"
 
-void messages::SendStats(Game* g)
+void messages::SendStats(Game *g)
 {
     Console::Clear();
 
@@ -27,9 +26,7 @@ void messages::SendStats(Game* g)
     else
         g->End();
 
-
     g->Shutdown();
-    
 
     Console::PrintLine();
     Console::PrintLine();

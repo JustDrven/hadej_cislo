@@ -9,11 +9,12 @@
 #define DEBUG 1
 
 #if DEBUG == 1
-    #include <iostream>
+#include <iostream>
 
-    #define LOG(str) std::cout << "[LOG] " str << NL;
-    #define ERROR(str) std::cout << "[ERROR] " str << NL;
+#define LOG(str) std::cout << "[LOG] " str << NL;
+#define ERROR(str) std::cout << "[ERROR] " str << NL;
+
 #elif
-    #define LOG(str) 
-    #define ERROR(str) 
+#define LOG(str)
+#define ERROR(str)
 #endif

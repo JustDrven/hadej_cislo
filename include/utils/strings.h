@@ -8,7 +8,8 @@
 
 #include "../../base/precompile.h"
 
-namespace string_util {
+namespace string_util
+{
 
     STR_T ToStr(int);
     bool IsNumber(int);

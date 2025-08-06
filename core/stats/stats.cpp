@@ -11,12 +11,10 @@
 #include "../../include/utils/console.h"
 #include "../../include/settings.h"
 
-
 #define STATS_FILE_NAME "stats.dat"
 
 #define WINS_DISPLAY "Wins"
 #define LOSSES_DISPLAY "Losses"
-
 
 std::map<STAT_TYPE, int> stats;
 
@@ -26,7 +24,6 @@ bool exist()
 
     return statsFile.good();
 }
-
 
 STR_T getNameByStatsType(STAT_TYPE _statType)
 {
@@ -67,9 +64,8 @@ void Stats::Init()
 
         STRVEC_T data = string_util::Split(line, "=");
 
-        stats.insert( { getStatsTypeByName(data.at(0)), std::stoi(data.at(1)) } );
+        stats.insert({getStatsTypeByName(data.at(0)), std::stoi(data.at(1))});
     }
-
 }
 
 void Stats::PrintStats()
@@ -85,7 +81,6 @@ void Stats::PrintStats()
     Console::PrintLine();
     Console::PrintLine(GSettings::LINE);
     Console::PrintLine();
-
 }
 
 void Stats::Write(STAT_TYPE _statType)
@@ -93,7 +88,7 @@ void Stats::Write(STAT_TYPE _statType)
     UINT oldValue = GetStat(_statType);
     stats.erase(_statType);
 
-    stats.insert( { _statType, oldValue + 1 } );
+    stats.insert({_statType, oldValue + 1});
 }
 
 UINT Stats::GetStat(STAT_TYPE _statType)
@@ -105,7 +100,7 @@ void Stats::Flush()
 {
     OSTREAM_T statsFile(STATS_FILE_NAME);
 
-    for (auto& p : stats)
+    for (auto &p : stats)
         statsFile << getNameByStatsType(p.first) + "=" + string_util::ToStr(p.second) + "\n";
 
     statsFile.close();

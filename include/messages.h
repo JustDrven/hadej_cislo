@@ -4,11 +4,11 @@
   Author:     JustDrven (petr.nemec11111@gmail.com)
 */
 
-
 #pragma once
 
 #include "game.h"
 
-namespace messages {
-    void SendStats(Game*);
+namespace messages
+{
+    void SendStats(Game *);
 }

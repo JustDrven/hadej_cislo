@@ -4,7 +4,6 @@
   Author:     JustDrven (petr.nemec11111@gmail.com)
 */
 
-
 #include "../../include/models/player.h"
 #include "../../include/settings.h"
 

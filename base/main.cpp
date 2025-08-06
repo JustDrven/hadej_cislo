@@ -15,9 +15,10 @@
 int main(int argc, char const *argv[])
 {
 
-    if (!__CAN_START) {
+    if (!__CAN_START)
+    {
         LOG("Neznámý operační systém.");
-        
+
         return 1;
     }
 
@@ -31,7 +32,8 @@ int main(int argc, char const *argv[])
         STR_T randomArg = argv[1];
 
         std::transform(randomArg.begin(), randomArg.end(), randomArg.begin(),
-            [](unsigned char c) { return std::tolower(c); });
+                       [](unsigned char c)
+                       { return std::tolower(c); });
 
         if (randomArg == "stats")
         {
@@ -42,7 +44,6 @@ int main(int argc, char const *argv[])
         if (randomArg == "random")
             genRanNum = true;
     }
-    
 
     game.Start(genRanNum);
 

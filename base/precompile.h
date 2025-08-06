@@ -24,4 +24,3 @@ typedef unsigned int UINT;
 #define LINES(f, l) std::getline(f, l)
 
 #define NL std::endl;
-

@@ -9,13 +9,15 @@
 #include "../compiler/precompile.h"
 #include "../compiler/file_sys.h"
 
-typedef struct {
+typedef struct
+{
     STR cFileName;
     STR fileName;
     int statusCode;
-} COMPILE_DATA; 
+} COMPILE_DATA;
 
-void Compile(COMPILE_DATA* data) {
+void Compile(COMPILE_DATA *data)
+{
     char command[9000];
     snprintf(command, sizeof(command), "clang %s -o %s", data->cFileName, data->fileName);
 
@@ -23,9 +25,11 @@ void Compile(COMPILE_DATA* data) {
     data->statusCode = statusCode;
 }
 
-COMPILE_DATA* CompileDataFactory(STR cFileName, STR fileName) {
-    COMPILE_DATA* data = malloc(sizeof(COMPILE_DATA));
-    if (!data) return NULL;
+COMPILE_DATA *CompileDataFactory(STR cFileName, STR fileName)
+{
+    COMPILE_DATA *data = malloc(sizeof(COMPILE_DATA));
+    if (!data)
+        return NULL;
 
     data->cFileName = cFileName;
 

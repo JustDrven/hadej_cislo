@@ -14,7 +14,7 @@ typedef int BOOL;
 #define TRUE 1
 
 #ifdef __START
-    #define __CAN_START TRUE
+#define __CAN_START TRUE
 #else
-    #define __CAN_START FALSE
+#define __CAN_START FALSE
 #endif

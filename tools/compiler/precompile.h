@@ -11,9 +11,8 @@
 
 #include "starter.h"
 
-typedef const char* STR;
+typedef const char *STR;
 
 #define PRINT(s) printf(s "\n")
 #define LOG(s) PRINT("[INFO] " s)
 #define ERROR(s) PRINT("[ERROR] " s)
-

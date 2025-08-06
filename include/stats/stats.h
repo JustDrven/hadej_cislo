@@ -4,22 +4,22 @@
   Author:     JustDrven (petr.nemec11111@gmail.com)
 */
 
-
 #pragma once
 
 #include "../../base/precompile.h"
 
-typedef enum StatType {
+typedef enum
+{
     Wins,
     Losses
 } STAT_TYPE;
 
 class Stats
 {
-    public:
-        STATIC void Init();
-        STATIC void PrintStats();
-        STATIC void Write(STAT_TYPE);
-        STATIC UINT GetStat(STAT_TYPE);
-        STATIC void Flush();
+public:
+    STATIC void Init();
+    STATIC void PrintStats();
+    STATIC void Write(STAT_TYPE);
+    STATIC UINT GetStat(STAT_TYPE);
+    STATIC void Flush();
 };

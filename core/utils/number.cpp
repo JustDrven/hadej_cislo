@@ -4,7 +4,6 @@
   Author:     JustDrven (petr.nemec11111@gmail.com)
 */
 
-
 #include "../../include/utils/number.h"
 #include "../../base/precompile.h"
 
